@@ -1,22 +1,24 @@
 import { useState, useEffect } from 'react';
 
-const useGetReviewApiData = (page) => {
+const useGetReviewApiData = (page, rating, showMoreClicked) => {
     const [reviewData, setReviewData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [aggregateData, setAggregateData] = useState({});
 
     const getReviewData = async () => {
-        const response = await fetch(`https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie/reviews?page=${page}`)
+        let mainUrl = 'https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie/reviews?' + '&page=' + page + (rating ? '&rating=' + rating : '')
+        const response = await fetch(mainUrl)
         const data = await response.json()
         let reviewAllData = [...reviewData, ...data?.data]
-        setReviewData(reviewAllData)
+        let newReviewData = data?.data
+        setReviewData(showMoreClicked ? reviewAllData : newReviewData)
         setAggregateData(data?.aggregate)
     }
 
     useEffect(() => {
         getReviewData()
-      }, [page])
+      }, [page, rating])
 
     return { reviewData, aggregateData};
 };
