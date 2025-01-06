@@ -7,7 +7,8 @@ module.exports = {
         '144': '36rem', // Add another custom width
       },
       height: {
-        '144': '36rem'
+        '144': '36rem',
+        '192': '48rem'
       }
     },
   },
