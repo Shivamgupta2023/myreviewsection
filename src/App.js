@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className='w-screen h-screen bg-slate-400 bg-opacity-80 items-center md:flex flex-col'>
-      <div className='bg-white md:m-20 md:w-3/4 rounded-md'>
+      <div className='bg-white h-full md:m-20 md:w-3/4 rounded-md'>
         <div className='flex flex-row-reverse'>
           <div className='w-7'>
             <ClearTwoToneIcon />

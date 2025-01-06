@@ -84,7 +84,7 @@ const CommentSection = ({page, setPage, reviewData, setShowMoreClicked, aggregat
 
     if(!reviewData.length && !loading) {
         return (
-            <div className='h-full w-full flex flex-col items-center justify-center md:w-3/5'>
+            <div className='mt-4 flex flex-col items-center justify-center md:w-3/5'>
                 <ReviewsTwoToneIcon/>
                 <div className='text-xl mt-4'>No reviews yet!</div>
                 <div className='mt-4'>Be the first to review this product</div>
